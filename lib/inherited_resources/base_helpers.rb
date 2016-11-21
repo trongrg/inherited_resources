@@ -56,7 +56,7 @@ module InheritedResources
       # instance variable.
       #
       def build_resource
-        get_resource_ivar || set_resource_ivar(end_of_association_chain.send(method_for_build, *resource_params))
+        get_resource_ivar || set_resource_ivar(end_of_association_chain.send(method_for_build, resource_params))
       end
 
       # Responsible for saving the resource on :create method. Overwriting this
@@ -82,7 +82,7 @@ module InheritedResources
       #   end
       #
       def update_resource(object, attributes)
-        object.update_attributes(*attributes)
+        object.update_attributes(attributes)
       end
 
       # Handle the :destroy method for the resource. Overwrite it to call your
